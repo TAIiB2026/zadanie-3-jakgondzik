@@ -1,0 +1,8 @@
+<div>
+    <h3>Informacje z serwisu globalnego:</h3>
+    <p>Data utworzenia instancji serwisu: {{ (serviceCreationDate$ | async) | date:'yyyy-MM-dd HH:mm:ss' }}</p>
+    <p>Data ostatniego pobrania listy: {{ (lastFetchDate$ | async) | date:'yyyy-MM-dd HH:mm:ss' }}</p>
+  </div>
+  
+  <hr />
+<router-outlet></router-outlet>

@@ -1,0 +1,18 @@
+<form (ngSubmit)="addPerson()" #personForm="ngForm">
+    <div>
+      <label>Imię:</label>
+      <input type="text" [(ngModel)]="name" name="name" required minlength="2" />
+    </div>
+    
+    <div>
+      <label>Wiek:</label>
+      <input type="number" [(ngModel)]="age" name="age" required min="0" max="100" />
+    </div>
+    
+    <div>
+      <label>Data urodzenia:</label>
+      <input type="date" [(ngModel)]="dateOfBirth" max="2026-05-20" name="dateOfBirth" required />
+    </div>
+    
+    <button type="submit" [disabled]="personForm.invalid">Zapisz</button>
+  </form>

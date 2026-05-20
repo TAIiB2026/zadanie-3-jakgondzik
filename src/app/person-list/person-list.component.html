@@ -1,0 +1,32 @@
+<button (click)="toggleForm()">
+    {{ isFormVisible ? 'Ukryj formularz' : 'Dodaj nową osobę' }}
+  </button>
+  
+  <div *ngIf="isFormVisible">
+    <app-person-form [listComponent]="this"></app-person-form>
+  </div>
+  
+  <hr />
+  
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Imię</th>
+        <th>Wiek</th>
+        <th>Data urodzenia</th>
+        <th>Akcje</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of people">
+        <td>{{ person.id }}</td>
+        <td>{{ person.name }}</td>
+        <td>{{ person.age }}</td>
+        <td>{{ person.dateOfBirth | date:'dd-MM-yyyy' }}</td>
+        <td>
+          <button (click)="onDelete(person.id)">Usuń</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

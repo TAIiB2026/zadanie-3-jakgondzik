@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { GlobalService } from './services/global.service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
+  private readonly globalService = inject(GlobalService);
 
+  public lastFetchDate$ = this.globalService.lastFetchDate$;
+  public serviceCreationDate$ = this.globalService.serviceCreationDate$;
 }
